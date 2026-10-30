@@ -1,72 +1,6 @@
 {
-  "updated_at": "2026-10-30T12:49:40.665876+00:00",
+  "updated_at": "2026-10-30T13:12:38.843047+00:00",
   "observations": [
-    {
-      "competition": "soccer_france_ligue_one",
-      "event_id": "9a9f6c78276f74f15f42b013b033aa5d",
-      "home": "Le Havre",
-      "away": "Paris Saint Germain",
-      "start": "2026-10-30T18:00:00Z",
-      "bookmaker": "svenskaspel_se",
-      "selection": "Draw",
-      "odds": 6.1,
-      "collected_at": "2026-10-30T12:46:51.004918+00:00"
-    },
-    {
-      "competition": "soccer_france_ligue_one",
-      "event_id": "9a9f6c78276f74f15f42b013b033aa5d",
-      "home": "Le Havre",
-      "away": "Paris Saint Germain",
-      "start": "2026-10-30T18:00:00Z",
-      "bookmaker": "svenskaspel_se",
-      "selection": "Le Havre",
-      "odds": 9.5,
-      "collected_at": "2026-10-30T12:46:51.004918+00:00"
-    },
-    {
-      "competition": "soccer_france_ligue_one",
-      "event_id": "9a9f6c78276f74f15f42b013b033aa5d",
-      "home": "Le Havre",
-      "away": "Paris Saint Germain",
-      "start": "2026-10-30T18:00:00Z",
-      "bookmaker": "svenskaspel_se",
-      "selection": "Paris Saint Germain",
-      "odds": 1.33,
-      "collected_at": "2026-10-30T12:46:51.004918+00:00"
-    },
-    {
-      "competition": "soccer_france_ligue_one",
-      "event_id": "a547720e6b4661d6319c4f11dbdf8e1f",
-      "home": "Nice",
-      "away": "Rennes",
-      "start": "2026-10-30T18:00:00Z",
-      "bookmaker": "svenskaspel_se",
-      "selection": "Draw",
-      "odds": 3.7,
-      "collected_at": "2026-10-30T12:46:51.004918+00:00"
-    },
-    {
-      "competition": "soccer_france_ligue_one",
-      "event_id": "a547720e6b4661d6319c4f11dbdf8e1f",
-      "home": "Nice",
-      "away": "Rennes",
-      "start": "2026-10-30T18:00:00Z",
-      "bookmaker": "svenskaspel_se",
-      "selection": "Nice",
-      "odds": 2.6,
-      "collected_at": "2026-10-30T12:46:51.004918+00:00"
-    },
-    {
-      "competition": "soccer_france_ligue_one",
-      "event_id": "a547720e6b4661d6319c4f11dbdf8e1f",
-      "home": "Nice",
-      "away": "Rennes",
-      "start": "2026-10-30T18:00:00Z",
-      "bookmaker": "svenskaspel_se",
-      "selection": "Rennes",
-      "odds": 2.7,
-      "collected_at": "2026-10-30T12:46:51.004918+00:00"
-    },
     {
       "competition": "soccer_germany_bundesliga",
       "event_id": "b275fe870ec88a9f0054c9220beb2673",
@@ -101,37 +35,37 @@
       "collected_at": "2026-10-30T12:49:40.665876+00:00"
     },
     {
-      "competition": "soccer_france_ligue_one",
-      "event_id": "7932d9a82dcdb164a3e4ef5e03694ee3",
-      "home": "Lille",
-      "away": "RC Lens",
-      "start": "2026-10-30T20:05:00Z",
+      "competition": "soccer_italy_serie_a",
+      "event_id": "04aa939b89001eedf55668e66c74836e",
+      "home": "Bologna",
+      "away": "Monza",
+      "start": "2026-10-31T14:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Bologna",
+      "odds": 1.75,
+      "collected_at": "2026-10-30T13:12:38.843047+00:00"
+    },
+    {
+      "competition": "soccer_italy_serie_a",
+      "event_id": "04aa939b89001eedf55668e66c74836e",
+      "home": "Bologna",
+      "away": "Monza",
+      "start": "2026-10-31T14:00:00Z",
       "bookmaker": "svenskaspel_se",
       "selection": "Draw",
-      "odds": 3.4,
-      "collected_at": "2026-10-30T12:46:51.004918+00:00"
+      "odds": 3.9,
+      "collected_at": "2026-10-30T13:12:38.843047+00:00"
     },
     {
-      "competition": "soccer_france_ligue_one",
-      "event_id": "7932d9a82dcdb164a3e4ef5e03694ee3",
-      "home": "Lille",
-      "away": "RC Lens",
-      "start": "2026-10-30T20:05:00Z",
+      "competition": "soccer_italy_serie_a",
+      "event_id": "04aa939b89001eedf55668e66c74836e",
+      "home": "Bologna",
+      "away": "Monza",
+      "start": "2026-10-31T14:00:00Z",
       "bookmaker": "svenskaspel_se",
-      "selection": "Lille",
-      "odds": 2.8,
-      "collected_at": "2026-10-30T12:46:51.004918+00:00"
-    },
-    {
-      "competition": "soccer_france_ligue_one",
-      "event_id": "7932d9a82dcdb164a3e4ef5e03694ee3",
-      "home": "Lille",
-      "away": "RC Lens",
-      "start": "2026-10-30T20:05:00Z",
-      "bookmaker": "svenskaspel_se",
-      "selection": "RC Lens",
-      "odds": 2.65,
-      "collected_at": "2026-10-30T12:46:51.004918+00:00"
+      "selection": "Monza",
+      "odds": 4.9,
+      "collected_at": "2026-10-30T13:12:38.843047+00:00"
     },
     {
       "competition": "soccer_germany_bundesliga",
@@ -264,6 +198,72 @@
       "selection": "VfB Stuttgart",
       "odds": 4.1,
       "collected_at": "2026-10-30T12:49:40.665876+00:00"
+    },
+    {
+      "competition": "soccer_germany_bundesliga",
+      "event_id": "aecb9d8c01176616c87d893bee4bc0de",
+      "home": "Borussia Monchengladbach",
+      "away": "SC Paderborn",
+      "start": "2026-10-31T14:30:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Borussia Monchengladbach",
+      "odds": 1.96,
+      "collected_at": "2026-10-30T12:49:40.665876+00:00"
+    },
+    {
+      "competition": "soccer_germany_bundesliga",
+      "event_id": "aecb9d8c01176616c87d893bee4bc0de",
+      "home": "Borussia Monchengladbach",
+      "away": "SC Paderborn",
+      "start": "2026-10-31T14:30:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Draw",
+      "odds": 4.1,
+      "collected_at": "2026-10-30T12:49:40.665876+00:00"
+    },
+    {
+      "competition": "soccer_germany_bundesliga",
+      "event_id": "aecb9d8c01176616c87d893bee4bc0de",
+      "home": "Borussia Monchengladbach",
+      "away": "SC Paderborn",
+      "start": "2026-10-31T14:30:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "SC Paderborn",
+      "odds": 3.7,
+      "collected_at": "2026-10-30T12:49:40.665876+00:00"
+    },
+    {
+      "competition": "soccer_italy_serie_a",
+      "event_id": "34cd26b96f78bd7aa3dbff3d1daca7a7",
+      "home": "Udinese",
+      "away": "AS Roma",
+      "start": "2026-10-31T17:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "AS Roma",
+      "odds": 1.57,
+      "collected_at": "2026-10-30T13:12:38.843047+00:00"
+    },
+    {
+      "competition": "soccer_italy_serie_a",
+      "event_id": "34cd26b96f78bd7aa3dbff3d1daca7a7",
+      "home": "Udinese",
+      "away": "AS Roma",
+      "start": "2026-10-31T17:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Draw",
+      "odds": 4.4,
+      "collected_at": "2026-10-30T13:12:38.843047+00:00"
+    },
+    {
+      "competition": "soccer_italy_serie_a",
+      "event_id": "34cd26b96f78bd7aa3dbff3d1daca7a7",
+      "home": "Udinese",
+      "away": "AS Roma",
+      "start": "2026-10-31T17:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Udinese",
+      "odds": 5.6,
+      "collected_at": "2026-10-30T13:12:38.843047+00:00"
     }
   ],
   "runs": [],

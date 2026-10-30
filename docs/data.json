@@ -1,7 +1,272 @@
 {
-  "updated_at": null,
-  "observations": [],
+  "updated_at": "2026-10-30T08:25:56.544315+00:00",
+  "observations": [
+    {
+      "competition": "soccer_epl",
+      "event_id": "6601f69175a02f03fb7065aacb538e01",
+      "home": "Chelsea",
+      "away": "Manchester United",
+      "start": "2026-10-31T12:30:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Chelsea",
+      "odds": 1.83,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "6601f69175a02f03fb7065aacb538e01",
+      "home": "Chelsea",
+      "away": "Manchester United",
+      "start": "2026-10-31T12:30:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Manchester United",
+      "odds": 4.4,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "6601f69175a02f03fb7065aacb538e01",
+      "home": "Chelsea",
+      "away": "Manchester United",
+      "start": "2026-10-31T12:30:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Draw",
+      "odds": 4,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "a6c06eabdf4e6710354b6098d39449e7",
+      "home": "Bournemouth",
+      "away": "Leeds United",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Bournemouth",
+      "odds": 2.15,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "a6c06eabdf4e6710354b6098d39449e7",
+      "home": "Bournemouth",
+      "away": "Leeds United",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Leeds United",
+      "odds": 3.6,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "a6c06eabdf4e6710354b6098d39449e7",
+      "home": "Bournemouth",
+      "away": "Leeds United",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Draw",
+      "odds": 3.6,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "b9254b648ca25ce7831988b53ed17c3c",
+      "home": "Brentford",
+      "away": "Nottingham Forest",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Brentford",
+      "odds": 2.06,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "b9254b648ca25ce7831988b53ed17c3c",
+      "home": "Brentford",
+      "away": "Nottingham Forest",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Nottingham Forest",
+      "odds": 3.55,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "b9254b648ca25ce7831988b53ed17c3c",
+      "home": "Brentford",
+      "away": "Nottingham Forest",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Draw",
+      "odds": 3.9,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "7df53f9af95d5a4e13b504882078dab8",
+      "home": "Manchester City",
+      "away": "Brighton and Hove Albion",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Brighton and Hove Albion",
+      "odds": 4.9,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "7df53f9af95d5a4e13b504882078dab8",
+      "home": "Manchester City",
+      "away": "Brighton and Hove Albion",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Manchester City",
+      "odds": 1.64,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "7df53f9af95d5a4e13b504882078dab8",
+      "home": "Manchester City",
+      "away": "Brighton and Hove Albion",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Draw",
+      "odds": 4.6,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "d20fbb0cd5ad9369b8ed6f2c4a198619",
+      "home": "Coventry City",
+      "away": "Sunderland",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Coventry City",
+      "odds": 3.2,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "d20fbb0cd5ad9369b8ed6f2c4a198619",
+      "home": "Coventry City",
+      "away": "Sunderland",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Sunderland",
+      "odds": 2.38,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "d20fbb0cd5ad9369b8ed6f2c4a198619",
+      "home": "Coventry City",
+      "away": "Sunderland",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Draw",
+      "odds": 3.4,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "1ec76c009147b63859f68c6b5a1dd77b",
+      "home": "Hull City",
+      "away": "Ipswich Town",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Hull City",
+      "odds": 2.75,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "1ec76c009147b63859f68c6b5a1dd77b",
+      "home": "Hull City",
+      "away": "Ipswich Town",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Ipswich Town",
+      "odds": 2.8,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "1ec76c009147b63859f68c6b5a1dd77b",
+      "home": "Hull City",
+      "away": "Ipswich Town",
+      "start": "2026-10-31T15:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Draw",
+      "odds": 3.35,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "01b17432a283eb27af86ae45602eb6dd",
+      "home": "Tottenham Hotspur",
+      "away": "Crystal Palace",
+      "start": "2026-10-31T17:30:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Crystal Palace",
+      "odds": 5.8,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "01b17432a283eb27af86ae45602eb6dd",
+      "home": "Tottenham Hotspur",
+      "away": "Crystal Palace",
+      "start": "2026-10-31T17:30:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Tottenham Hotspur",
+      "odds": 1.56,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "01b17432a283eb27af86ae45602eb6dd",
+      "home": "Tottenham Hotspur",
+      "away": "Crystal Palace",
+      "start": "2026-10-31T17:30:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Draw",
+      "odds": 4.6,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "640c52a86289f35698261b41987dd71e",
+      "home": "Aston Villa",
+      "away": "Fulham",
+      "start": "2026-10-31T20:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Aston Villa",
+      "odds": 1.97,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "640c52a86289f35698261b41987dd71e",
+      "home": "Aston Villa",
+      "away": "Fulham",
+      "start": "2026-10-31T20:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Fulham",
+      "odds": 3.75,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    },
+    {
+      "competition": "soccer_epl",
+      "event_id": "640c52a86289f35698261b41987dd71e",
+      "home": "Aston Villa",
+      "away": "Fulham",
+      "start": "2026-10-31T20:00:00Z",
+      "bookmaker": "svenskaspel_se",
+      "selection": "Draw",
+      "odds": 3.9,
+      "collected_at": "2026-10-30T08:25:56.544315+00:00"
+    }
+  ],
   "runs": [],
   "credits_used_this_month": null,
-  "methodology": "Offentlig mobilvy utan publicerade tredjepartsodds. Datadelning avvaktar rättighetskontroll."
+  "methodology": "Begränsat UI-urval av tidsstämplade Svenska Spel-odds från The Odds API. Priserna är historiska och får inte behandlas som aktuella. Ingen prognosmodell validerad."
 }

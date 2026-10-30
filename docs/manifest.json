@@ -1,7 +1,7 @@
 {
   "name": "OddsLab Football",
   "short_name": "OddsLab",
-  "start_url": "./",
+  "start_url": "./?v=21",
   "display": "standalone",
   "background_color": "#081523",
   "theme_color": "#081523",
@@ -11,5 +11,6 @@
       "sizes": "any",
       "type": "image/svg+xml"
     }
-  ]
+  ],
+  "id": "./"
 }

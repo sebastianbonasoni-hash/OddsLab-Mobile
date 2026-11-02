@@ -35,10 +35,11 @@ function name(r){return leagueNames[r]||r.replace(/^soccer_/,"").replaceAll("_",
 function mkey(r){return [r.market||"h2h",r.market==="spreads"?Math.abs(Number(r.point)):r.point??""].join("|");}
 function label(r){if(r.market==="totals")return (r.selection==="Over"?"Över ":"Under ")+r.point;if(r.market==="spreads")return r.selection+" "+(Number(r.point)>0?"+":"")+r.point;if(r.selection===r.home)return "1 · "+r.home;if(r.selection===r.away)return "2 · "+r.away;return "X · Oavgjort";}
 function marketLabel(r){const base=marketNames[r.market||"h2h"]||r.market;if(r.market==="totals")return base+" · "+r.point+" mål";if(r.market==="spreads")return base+" · "+Math.abs(Number(r.point));return base;}
-function valid(r){return r&&r.event_id&&r.competition&&r.home&&r.away&&r.bookmaker&&r.selection&&Number(r.odds)>1&&Number.isFinite(Date.parse(r.collected_at));}
+function valid(r){return r&&r.event_id&&r.competition&&r.home&&r.away&&r.bookmaker&&r.selection&&Number(r.odds)>1&&Number.isFinite(Date.parse(r.collected_at))&&Number.isFinite(Date.parse(r.start));}
+function ageLabel(q){const hours=(Date.now()-Date.parse(q.collected_at))/3600000;if(hours<0)return "Tidsfel";return hours<2?"Observerat nyss":hours<24?"Observerat "+Math.floor(hours)+" h sedan":"Historiskt · "+Math.floor(hours/24)+" dygn gammalt";}
 function makeMatch(items){
  const first=items[0],article=el("article","match");
- const head=el("div","match-head"),left=el("div"),teams=el("div","teams",first.home+" – "+first.away);left.append(teams,el("div","meta",name(first.competition)+" · "+fmtDate(first.start)));head.append(left,el("div","pill",items.length+" priser"));article.append(head);
+ const head=el("div","match-head"),left=el("div"),teams=el("div","teams",first.home+" – "+first.away);left.append(teams,el("div","meta",name(first.competition)+" · "+fmtDate(first.start)+(Date.parse(first.start)<=Date.now()?" · Matchstart passerad":"")));head.append(left,el("div","pill",items.length+" priser"));article.append(head);
  const markets=new Map();
  for(const r of items){const k=mkey(r);if(!markets.has(k))markets.set(k,[]);markets.get(k).push(r);}
  for(const quotes of markets.values()){
@@ -48,7 +49,7 @@ function makeMatch(items){
   const focus=svenska;
   const ordered=[...focus].sort((a,b)=>String(a.selection).localeCompare(String(b.selection),"sv"));
   const grid=el("div","oddsgrid"+(ordered.length===2?" two":""));
-  for(const q of ordered){const item=el("div","odd");item.append(el("div","label",label(q)),el("strong","",Number(q.odds).toFixed(2)),el("small","",bookNames[q.bookmaker]||q.bookmaker));grid.append(item);}
+  for(const q of ordered){const item=el("div","odd");item.append(el("div","label",label(q)),el("strong","",Number(q.odds).toFixed(2)),el("small","",(bookNames[q.bookmaker]||q.bookmaker)+" · "+ageLabel(q)));grid.append(item);}
   article.append(grid);
   const detail=el("details","details"),summary=el("summary","", "Marknadsreferenser · "+quotes.filter(q=>q.bookmaker!=="svenskaspel_se").length+" priser");detail.append(summary);
   const note=el("p","meta","Referensodds från andra bolag är inte spelalternativ. Priser kan vara inaktuella och jämförelsen fastställer inte spelvärde.");detail.append(note);

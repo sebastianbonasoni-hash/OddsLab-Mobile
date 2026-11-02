@@ -2,11 +2,11 @@
 
 Mobilanpassat forskningsgränssnitt för OddsLab. Statisk webbapp i `docs/`.
 
-**Status:** Filer publicerade i repositoryt. GitHub Pages behöver aktiveras i **Settings → Pages**, välj **Deploy from a branch**, **main**, **/docs**, **Save**.
+**Status:** Statisk PWA publicerad från `docs/`. Kontrollera GitHub Pages-deploy och sidans faktiska tillgänglighet separat; en lyckad Git-commit bevisar inte att webbpubliceringen lyckades.
 
-Webbadress efter lyckad Pages-publicering:
+Avsedd webbadress:
 https://sebastianbonasoni-hash.github.io/OddsLab-Mobile/
 
-Den offentliga datafilen innehåller **inga tredjepartsodds** innan API-villkor och publiceringsrättigheter är granskade. Historisk oddsinsamling sker i det separata privata repositoryt.
+Den offentliga datafilen innehåller tidsstämplade oddsobservationer, inklusive tredjepartspriser. **Publiceringsrättigheter och API-villkor måste verifieras innan offentlig produktionslansering.** Historisk oddsinsamling sker i det separata privata repositoryt. Priserna är inte liveodds.
 
 Inga API-nycklar ingår i koden. Inga spel läggs automatiskt. Modellen är inte validerad för spelvärde eller ekonomisk avkastning.

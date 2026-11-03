@@ -7,11 +7,12 @@
 <body><main>
 <div class="top"><div class="eyebrow">◈ ODDSLAB / FOOTBALL</div><span class="tag">RESEARCH · V2</span></div>
 <h1>Marknadsanalys</h1><p class="muted sub">Svenska Spel i fokus. Övriga spelbolag används enbart som marknadsreferens.</p>
+<section class="panel" aria-labelledby="opportunities-title"><div class="top"><h2 id="opportunities-title" style="margin:0">Dagens möjligheter</h2><span class="tag">EXPERIMENTELLT</span></div><p class="sub muted">EV-rankning aktiveras först när det finns verifierbara, tidsstämplade modellprognoser. Inga spelvärden uppskattas utifrån enbart jämförelseodds.</p><div class="empty" id="opportunities">Inga verifierade EV-kandidater. Modellen saknar ännu oberoende statistisk validering.</div><p class="mini" id="monitor">Kontrollerar oddsens ålder…</p></section>
 <div class="cards">
 <div class="card"><div class="label">Tävlingar med data</div><div class="number" id="leagues">–</div><div class="mini">Av 22 bevakade</div></div>
 <div class="card"><div class="label">Matcher i urvalet</div><div class="number" id="matches">–</div><div class="mini">Ej hela historiken</div></div>
 <div class="card"><div class="label">Svenska Spel-odds</div><div class="number" id="quotes">–</div><div class="mini">Endast Svenska Spel</div></div>
-<div class="card"><div class="label">Senaste insamling</div><div class="number" style="font-size:18px" id="freshness">–</div><div class="mini" id="updated">Kontrollerar…</div></div>
+<div class="card"><div class="label">Senaste Svenska Spel-odds</div><div class="number" style="font-size:18px" id="freshness">–</div><div class="mini" id="updated">Kontrollerar…</div></div>
 </div>
 <div class="disclaimer">Alla priser är tidsstämplade observationer, inte liveodds. Jämförelsepris är inte sannolikhet eller positivt spelvärde. Kontrollera pris och spelvillkor hos spelbolaget innan beslut. Inga validerade modellprognoser finns ännu.</div>
 <h2>Utforska marknaden</h2>
@@ -26,6 +27,10 @@
 "use strict";
 const $=id=>document.getElementById(id);
 let rows=[],selectedMarket="all",lastUpdate=null;
+const MAX_QUOTE_AGE_MS=3*60*60*1000;
+const REFRESH_MS=5*60*1000; // Reloads published snapshots, not the upstream odds provider.
+function quoteTime(r){const t=Date.parse(r.bookmaker_updated||r.collected_at);return Number.isFinite(t)?t:NaN;}
+function usableQuote(r){const t=quoteTime(r),start=Date.parse(r.start),now=Date.now();return Number.isFinite(t)&&t<=now+5*60000&&now-t<=MAX_QUOTE_AGE_MS&&Number.isFinite(start)&&start>now;}
 const leagueNames={soccer_epl:"Premier League",soccer_spain_la_liga:"La Liga",soccer_italy_serie_a:"Serie A",soccer_germany_bundesliga:"Bundesliga",soccer_france_ligue_one:"Ligue 1",soccer_netherlands_eredivisie:"Eredivisie",soccer_portugal_primeira_liga:"Primeira Liga",soccer_uefa_champs_league:"Champions League",soccer_uefa_europa_league:"Europa League",soccer_sweden_allsvenskan:"Allsvenskan",soccer_efl_champ:"Championship",soccer_spl:"Scottish Premiership",soccer_belgium_first_div:"Belgian Pro League",soccer_turkey_super_league:"Süper Lig",soccer_denmark_superliga:"Superliga",soccer_norway_eliteserien:"Eliteserien"};
 const marketNames={h2h:"1X2",totals:"Över / under mål",spreads:"Handicap"};
 const bookNames={svenskaspel_se:"Svenska Spel",betsson:"Betsson",unibet_se:"Unibet",nordicbet:"NordicBet",atg_se:"ATG",leovegas_se:"LeoVegas",betmgm_se:"BetMGM",expekt_se:"Expekt"};
@@ -36,7 +41,7 @@ function mkey(r){return [r.market||"h2h",r.market==="spreads"?Math.abs(Number(r.
 function label(r){if(r.market==="totals")return (r.selection==="Over"?"Över ":"Under ")+r.point;if(r.market==="spreads")return r.selection+" "+(Number(r.point)>0?"+":"")+r.point;if(r.selection===r.home)return "1 · "+r.home;if(r.selection===r.away)return "2 · "+r.away;return "X · Oavgjort";}
 function marketLabel(r){const base=marketNames[r.market||"h2h"]||r.market;if(r.market==="totals")return base+" · "+r.point+" mål";if(r.market==="spreads")return base+" · "+Math.abs(Number(r.point));return base;}
 function valid(r){return r&&r.event_id&&r.competition&&r.home&&r.away&&r.bookmaker&&r.selection&&Number(r.odds)>1&&Number.isFinite(Date.parse(r.collected_at))&&Number.isFinite(Date.parse(r.start));}
-function ageLabel(q){const hours=(Date.now()-Date.parse(q.collected_at))/3600000;if(hours<0)return "Tidsfel";return hours<2?"Observerat nyss":hours<24?"Observerat "+Math.floor(hours)+" h sedan":"Historiskt · "+Math.floor(hours/24)+" dygn gammalt";}
+function ageLabel(q){const hours=(Date.now()-quoteTime(q))/3600000;if(!Number.isFinite(hours)||hours<0)return "Tidsstämpel saknas";return (usableQuote(q)?"":"GAMMALT · ")+(hours<1?Math.floor(hours*60)+" min sedan":hours<24?Math.floor(hours)+" h sedan":Math.floor(hours/24)+" dygn sedan");}
 function makeMatch(items){
  const first=items[0],article=el("article","match");
  const head=el("div","match-head"),left=el("div"),teams=el("div","teams",first.home+" – "+first.away);left.append(teams,el("div","meta",name(first.competition)+" · "+fmtDate(first.start)+(Date.parse(first.start)<=Date.now()?" · Matchstart passerad":"")));head.append(left,el("div","pill",items.length+" priser"));article.append(head);
@@ -63,8 +68,8 @@ function makeMatch(items){
 }
 function render(){
  const league=$("league").value,q=$("search").value.trim().toLocaleLowerCase("sv");
- const eligible=new Set(rows.filter(r=>r.bookmaker==="svenskaspel_se").map(r=>r.competition+"|"+r.event_id+"|"+mkey(r)));
- const filtered=rows.filter(r=>eligible.has(r.competition+"|"+r.event_id+"|"+mkey(r))&&(!league||r.competition===league)&&(selectedMarket==="all"||(r.market||"h2h")===selectedMarket)&&(!q||(r.home+" "+r.away).toLocaleLowerCase("sv").includes(q)));
+ const eligible=new Set(rows.filter(r=>r.bookmaker==="svenskaspel_se"&&usableQuote(r)).map(r=>r.competition+"|"+r.event_id+"|"+mkey(r)));
+ const filtered=rows.filter(r=>usableQuote(r)&&eligible.has(r.competition+"|"+r.event_id+"|"+mkey(r))&&(!league||r.competition===league)&&(selectedMarket==="all"||(r.market||"h2h")===selectedMarket)&&(!q||(r.home+" "+r.away).toLocaleLowerCase("sv").includes(q)));
  const groups=new Map();for(const r of filtered){const k=r.competition+"|"+r.event_id;if(!groups.has(k))groups.set(k,[]);groups.get(k).push(r);}
  $("results").textContent=groups.size+" matcher · "+filtered.length+" prisobservationer i aktuellt filter";
  const target=$("games");target.replaceChildren();if(!groups.size){target.append(el("div","empty","Ingen data för detta filter. Det kan bero på att marknaden inte levererats eller att den saknas i det publicerade urvalet."));return;}
@@ -76,15 +81,17 @@ async function load(){
  try{const response=await fetch("data.json?v="+Date.now(),{cache:"no-store"});if(!response.ok)throw Error("HTTP "+response.status);const data=await response.json();
  rows=(data.observations||[]).filter(valid).map(r=>({...r,market:r.market||"h2h"}));
  lastUpdate=data.updated_at;
- const targetRows=rows.filter(r=>r.bookmaker==="svenskaspel_se");const leagues=[...new Set(targetRows.map(r=>r.competition))].sort();options("league",leagues,name);
+ const targetRows=rows.filter(r=>r.bookmaker==="svenskaspel_se");const freshRows=targetRows.filter(usableQuote);const leagues=[...new Set(targetRows.map(r=>r.competition))].sort();options("league",leagues,name);
  $("leagues").textContent=leagues.length;$("matches").textContent=new Set(targetRows.map(r=>r.event_id)).size;$("quotes").textContent=targetRows.length;
- const quoteTimes=targetRows.map(r=>Date.parse(r.bookmaker_updated||r.collected_at)).filter(Number.isFinite);
+ const quoteTimes=targetRows.map(quoteTime).filter(Number.isFinite);
  const newestQuote=quoteTimes.length?Math.max(...quoteTimes):NaN;
  const quoteAge=(Date.now()-newestQuote)/60000;
  const publicationAge=(Date.now()-Date.parse(lastUpdate))/60000;
  $("freshness").textContent=!Number.isFinite(quoteAge)?"Okänt":quoteAge<60?Math.max(0,Math.round(quoteAge))+" min":Math.round(quoteAge/60)+" tim";
  $("updated").textContent="Senaste Svenska Spel-pris: "+(Number.isFinite(newestQuote)?fmtDate(new Date(newestQuote).toISOString()):"okänt");
  const stale=!Number.isFinite(quoteAge)||quoteAge>180||quoteAge< -5;
+ $("monitor").textContent=freshRows.length+" av "+targetRows.length+" Svenska Spel-priser är högst 3 timmar gamla och gäller matcher som ännu inte startat. Publicerad data kontrolleras automatiskt var 5:e minut; det innebär inte liveodds.";
+ $("opportunities").textContent="Inga validerade EV-kandidater. Modellsannolikheter och utvärdering saknas. Inga påhittade spelvärden visas.";
  $("status").textContent=(stale?"VARNING: Svenska Spel-priserna är gamla eller saknar verifierad tidsstämpel. ":"Historiska prisobservationer – inte liveodds. ")+"Senaste publicering: "+fmtDate(lastUpdate)+". "+(Number.isFinite(publicationAge)&&publicationAge>180?"Publiceringen är äldre än 3 timmar. ":"")+"Visar "+targetRows.length+" Svenska Spel-observationer med referenspriser i ett begränsat urval.";
  render();
  }catch(e){$("status").textContent="Kunde inte läsa datafilen: "+e.message;$("games").replaceChildren(el("div","empty","Data saknas. Kontrollera GitHub-publiceringen."));}
@@ -93,4 +100,6 @@ for(const b of document.querySelectorAll(".tab"))b.addEventListener("click",()=>
 for(const k of ["league","search"])$(k).addEventListener("input",render);
 $("reload").addEventListener("click",load);
 load();
+setInterval(()=>{if(!document.hidden)load();},REFRESH_MS);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)load();});
 </script></body></html>

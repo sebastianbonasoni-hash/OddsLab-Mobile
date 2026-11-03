@@ -44,7 +44,7 @@ function valid(r){return r&&r.event_id&&r.competition&&r.home&&r.away&&r.bookmak
 function ageLabel(q){const hours=(Date.now()-quoteTime(q))/3600000;if(!Number.isFinite(hours)||hours<0)return "Tidsstämpel saknas";return (usableQuote(q)?"":"GAMMALT · ")+(hours<1?Math.floor(hours*60)+" min sedan":hours<24?Math.floor(hours)+" h sedan":Math.floor(hours/24)+" dygn sedan");}
 function makeMatch(items){
  const first=items[0],article=el("article","match");
- const head=el("div","match-head"),left=el("div"),teams=el("div","teams",first.home+" – "+first.away);left.append(teams,el("div","meta",name(first.competition)+" · "+fmtDate(first.start)+(Date.parse(first.start)<=Date.now()?" · Matchstart passerad":"")));head.append(left,el("div","pill",items.length+" priser"));article.append(head);
+ const head=el("div","match-head"),left=el("div"),teams=el("div","teams",first.home+" – "+first.away);left.append(teams,el("div","meta",name(first.competition)+" · "+fmtDate(first.start)+(Date.parse(first.start)<=Date.now()?" · Matchstart passerad":"")));head.append(left,el("div","pill",items.length+" priser"));article.append(head);if(!items.some(r=>r.bookmaker==="svenskaspel_se"&&usableQuote(r)))article.append(el("p","meta","ARKIVPRISER · Inga färska Svenska Spel-odds för denna match. Historiska priser är inte spelbara signaler."));
  const markets=new Map();
  for(const r of items){const k=mkey(r);if(!markets.has(k))markets.set(k,[]);markets.get(k).push(r);}
  for(const quotes of markets.values()){
@@ -68,11 +68,11 @@ function makeMatch(items){
 }
 function render(){
  const league=$("league").value,q=$("search").value.trim().toLocaleLowerCase("sv");
- const eligible=new Set(rows.filter(r=>r.bookmaker==="svenskaspel_se"&&usableQuote(r)).map(r=>r.competition+"|"+r.event_id+"|"+mkey(r)));
- const filtered=rows.filter(r=>usableQuote(r)&&eligible.has(r.competition+"|"+r.event_id+"|"+mkey(r))&&(!league||r.competition===league)&&(selectedMarket==="all"||(r.market||"h2h")===selectedMarket)&&(!q||(r.home+" "+r.away).toLocaleLowerCase("sv").includes(q)));
+ const eligible=new Set(rows.filter(r=>r.bookmaker==="svenskaspel_se"&&Date.parse(r.start)>Date.now()).map(r=>r.competition+"|"+r.event_id+"|"+mkey(r)));
+ const filtered=rows.filter(r=>Date.parse(r.start)>Date.now()&&eligible.has(r.competition+"|"+r.event_id+"|"+mkey(r))&&(!league||r.competition===league)&&(selectedMarket==="all"||(r.market||"h2h")===selectedMarket)&&(!q||(r.home+" "+r.away).toLocaleLowerCase("sv").includes(q)));
  const groups=new Map();for(const r of filtered){const k=r.competition+"|"+r.event_id;if(!groups.has(k))groups.set(k,[]);groups.get(k).push(r);}
- $("results").textContent=groups.size+" matcher · "+filtered.length+" prisobservationer i aktuellt filter";
- const target=$("games");target.replaceChildren();if(!groups.size){target.append(el("div","empty","Ingen data för detta filter. Det kan bero på att marknaden inte levererats eller att den saknas i det publicerade urvalet."));return;}
+ $("results").textContent=groups.size+" kommande matcher · "+filtered.length+" prisobservationer (äldre odds visas tydligt som historiska)";
+ const target=$("games");target.replaceChildren();if(!groups.size){target.append(el("div","empty","Inga kommande matcher i detta filter. Kontrollera datatäckningen och insamlingen."));return;}
  for(const g of [...groups.values()].sort((a,b)=>new Date(a[0].start)-new Date(b[0].start)))target.append(makeMatch(g));
 }
 function options(id,values,namer){const select=$(id),existing=select.value;select.replaceChildren(el("option","",id==="league"?"Alla tävlingar":"Alla spelbolag"));select.firstChild.value="";for(const v of values){const o=el("option","",namer(v));o.value=v;select.append(o);}if(values.includes(existing))select.value=existing;}
@@ -91,7 +91,7 @@ async function load(){
  $("updated").textContent="Senaste Svenska Spel-pris: "+(Number.isFinite(newestQuote)?fmtDate(new Date(newestQuote).toISOString()):"okänt");
  const stale=!Number.isFinite(quoteAge)||quoteAge>180||quoteAge< -5;
  $("monitor").textContent=freshRows.length+" av "+targetRows.length+" Svenska Spel-priser är högst 3 timmar gamla och gäller matcher som ännu inte startat. Publicerad data kontrolleras automatiskt var 5:e minut; det innebär inte liveodds.";
- $("opportunities").textContent="Inga validerade EV-kandidater. Modellsannolikheter och utvärdering saknas. Inga påhittade spelvärden visas.";
+ $("opportunities").textContent="Inga validerade EV-kandidater. Modellprognoser saknas eller är inte oberoende utvärderade. Historiska odds ger inte i sig positivt EV.";
  $("status").textContent=(stale?"VARNING: Svenska Spel-priserna är gamla eller saknar verifierad tidsstämpel. ":"Historiska prisobservationer – inte liveodds. ")+"Senaste publicering: "+fmtDate(lastUpdate)+". "+(Number.isFinite(publicationAge)&&publicationAge>180?"Publiceringen är äldre än 3 timmar. ":"")+"Visar "+targetRows.length+" Svenska Spel-observationer med referenspriser i ett begränsat urval.";
  render();
  }catch(e){$("status").textContent="Kunde inte läsa datafilen: "+e.message;$("games").replaceChildren(el("div","empty","Data saknas. Kontrollera GitHub-publiceringen."));}

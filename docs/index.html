@@ -88,7 +88,7 @@ async function load(){
  const quoteAge=(Date.now()-newestQuote)/60000;
  const publicationAge=(Date.now()-Date.parse(lastUpdate))/60000;
  $("freshness").textContent=!Number.isFinite(quoteAge)?"Okänt":quoteAge<60?Math.max(0,Math.round(quoteAge))+" min":Math.round(quoteAge/60)+" tim";
- $("updated").textContent="Senaste Svenska Spel-pris: "+(Number.isFinite(newestQuote)?fmtDate(new Date(newestQuote).toISOString()):"okänt");
+ $("updated").textContent="Senaste Svenska Spel-pris: "+(Number.isFinite(newestQuote)?fmtDate(new Date(newestQuote).toISOString()):"okänt")+" · "+(!Number.isFinite(quoteAge)||quoteAge>180||quoteAge< -5?"INAKTUELLT":"Högst 3 timmar gammalt");
  const stale=!Number.isFinite(quoteAge)||quoteAge>180||quoteAge< -5;
  $("monitor").textContent=freshRows.length+" av "+targetRows.length+" Svenska Spel-priser är högst 3 timmar gamla och gäller matcher som ännu inte startat. Publicerad data kontrolleras automatiskt var 5:e minut; det innebär inte liveodds.";
  $("opportunities").textContent="Inga validerade EV-kandidater. Modellprognoser saknas eller är inte oberoende utvärderade. Historiska odds ger inte i sig positivt EV.";

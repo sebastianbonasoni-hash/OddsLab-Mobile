@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T08:22:20.787315+00:00",
+  "updated_at": "2026-11-11T15:56:50.543782+00:00",
   "observations": [
     {
       "competition": "soccer_uefa_champs_league",
@@ -2352,62 +2352,6 @@
       "odds": 2.43,
       "collected_at": "2026-11-11T08:22:20.787315+00:00",
       "bookmaker_updated": "2026-11-11T08:21:32Z"
-    },
-    {
-      "competition": "soccer_uefa_champs_league",
-      "event_id": "9a2ebad454db4ab3d53b89e96c79847a",
-      "home": "Feyenoord",
-      "away": "Porto",
-      "start": "2026-11-24T20:00:00Z",
-      "bookmaker": "nordicbet",
-      "selection": "Over",
-      "market": "totals",
-      "point": 2.5,
-      "odds": 1.6,
-      "collected_at": "2026-11-10T15:54:40.149413+00:00",
-      "bookmaker_updated": "2026-11-10T15:53:59Z"
-    },
-    {
-      "competition": "soccer_uefa_champs_league",
-      "event_id": "9a2ebad454db4ab3d53b89e96c79847a",
-      "home": "Feyenoord",
-      "away": "Porto",
-      "start": "2026-11-24T20:00:00Z",
-      "bookmaker": "nordicbet",
-      "selection": "Under",
-      "market": "totals",
-      "point": 2.5,
-      "odds": 2.35,
-      "collected_at": "2026-11-10T15:54:40.149413+00:00",
-      "bookmaker_updated": "2026-11-10T15:53:59Z"
-    },
-    {
-      "competition": "soccer_uefa_champs_league",
-      "event_id": "9a2ebad454db4ab3d53b89e96c79847a",
-      "home": "Feyenoord",
-      "away": "Porto",
-      "start": "2026-11-24T20:00:00Z",
-      "bookmaker": "betsson",
-      "selection": "Over",
-      "market": "totals",
-      "point": 2.5,
-      "odds": 1.6,
-      "collected_at": "2026-11-10T15:54:40.149413+00:00",
-      "bookmaker_updated": "2026-11-10T15:53:42Z"
-    },
-    {
-      "competition": "soccer_uefa_champs_league",
-      "event_id": "9a2ebad454db4ab3d53b89e96c79847a",
-      "home": "Feyenoord",
-      "away": "Porto",
-      "start": "2026-11-24T20:00:00Z",
-      "bookmaker": "betsson",
-      "selection": "Under",
-      "market": "totals",
-      "point": 2.5,
-      "odds": 2.37,
-      "collected_at": "2026-11-10T15:54:40.149413+00:00",
-      "bookmaker_updated": "2026-11-10T15:53:42Z"
     },
     {
       "competition": "soccer_uefa_champs_league",
@@ -7000,6 +6944,62 @@
       "odds": 3.7,
       "collected_at": "2026-11-11T08:22:20.787315+00:00",
       "bookmaker_updated": "2026-11-11T08:21:51Z"
+    },
+    {
+      "competition": "soccer_uefa_champs_league",
+      "event_id": "49c66d76bc4085e63a181179cc47ef4d",
+      "home": "Shakhtar Donetsk",
+      "away": "Fenerbahce",
+      "start": "2026-11-25T20:00:00Z",
+      "bookmaker": "unibet_se",
+      "selection": "Over",
+      "market": "totals",
+      "point": 2.5,
+      "odds": 1.68,
+      "collected_at": "2026-11-11T08:22:20.787315+00:00",
+      "bookmaker_updated": "2026-11-11T08:21:51Z"
+    },
+    {
+      "competition": "soccer_uefa_champs_league",
+      "event_id": "49c66d76bc4085e63a181179cc47ef4d",
+      "home": "Shakhtar Donetsk",
+      "away": "Fenerbahce",
+      "start": "2026-11-25T20:00:00Z",
+      "bookmaker": "unibet_se",
+      "selection": "Under",
+      "market": "totals",
+      "point": 2.5,
+      "odds": 2.2,
+      "collected_at": "2026-11-11T08:22:20.787315+00:00",
+      "bookmaker_updated": "2026-11-11T08:21:51Z"
+    },
+    {
+      "competition": "soccer_uefa_champs_league",
+      "event_id": "49c66d76bc4085e63a181179cc47ef4d",
+      "home": "Shakhtar Donetsk",
+      "away": "Fenerbahce",
+      "start": "2026-11-25T20:00:00Z",
+      "bookmaker": "betmgm_se",
+      "selection": "Fenerbahce",
+      "market": "h2h",
+      "point": null,
+      "odds": 2.55,
+      "collected_at": "2026-11-11T08:22:20.787315+00:00",
+      "bookmaker_updated": "2026-11-11T08:22:09Z"
+    },
+    {
+      "competition": "soccer_uefa_champs_league",
+      "event_id": "49c66d76bc4085e63a181179cc47ef4d",
+      "home": "Shakhtar Donetsk",
+      "away": "Fenerbahce",
+      "start": "2026-11-25T20:00:00Z",
+      "bookmaker": "betmgm_se",
+      "selection": "Shakhtar Donetsk",
+      "market": "h2h",
+      "point": null,
+      "odds": 2.6,
+      "collected_at": "2026-11-11T08:22:20.787315+00:00",
+      "bookmaker_updated": "2026-11-11T08:22:09Z"
     }
   ],
   "coverage": {

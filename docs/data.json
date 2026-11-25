@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-24T23:03:42.464794+00:00",
+  "updated_at": "2026-11-25T08:37:24.872064+00:00",
   "observations": [
     {
       "competition": "soccer_uefa_champs_league",
@@ -7004,7 +7004,7 @@
   ],
   "coverage": {
     "available_competitions": 2,
-    "sample_events": 18,
+    "sample_events": 15,
     "source": "Limited recent snapshot, not full private historical archive"
   },
   "methodology": "Tidsstämplade historiska odds. Jämförelser är inte värdeberäkningar. Kontrollera alltid aktuella odds och marknadsvillkor."
